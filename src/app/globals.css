@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  
+  --color-isam-blue: #0047AB;
+  --color-isam-blue-dark: #003380;
+  --color-isam-yellow: #FFD700;
+  --color-isam-green: #228B22;
+  --color-isam-light: #F8FAFC;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
