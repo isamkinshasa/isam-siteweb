@@ -27,6 +27,17 @@ export const articleBySlugQuery = `*[_type == "article" && slug.current == $slug
   body,
 }`;
 
+/** 3 articles connexes (même catégorie ou récents, excluant le courant) */
+export const relatedArticlesQuery = `*[_type == "article" && slug.current != $slug] | order(publishedAt desc)[0...3] {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  category,
+  excerpt,
+  "image": image.asset->url,
+}`;
+
 /** Les 3 derniers articles (pour la section accueil) */
 export const latestArticlesQuery = `*[_type == "article"] | order(publishedAt desc)[0...3] {
   _id,

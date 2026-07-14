@@ -2,30 +2,39 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ArrowRight, Play } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop",
-    title: "Nos filières professionnelles",
-    subtitle: "Rejoignez nos programmes spécialisés en habillement, modélisme et esthétique",
-    cta: "Inscrivez-vous ici",
-    href: "https://isam.optsolution.net/demande-d-inscription-en-ligne-2025-2026",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1920&auto=format&fit=crop",
+    badge: "Inscriptions 2025-2026",
+    title: "Façonnez votre Avenir à l'ISAM",
+    subtitle: "Rejoignez nos programmes spécialisés en habillement, modélisme et esthétique. L'excellence académique au service de votre talent.",
+    cta: "S'inscrire maintenant",
+    ctaHref: "https://isam.optsolution.net/demande-d-inscription-en-ligne-2025-2026",
+    secondary: "Découvrir nos filières",
+    secondaryHref: "/filiere",
   },
   {
-    image: "https://images.unsplash.com/photo-1558769132-cb1fac0840f2?q=80&w=1600&auto=format&fit=crop",
-    title: "Excellence et Innovation",
-    subtitle: "Des formations de haut niveau qui allient tradition artisanale et techniques modernes",
-    cta: "Découvrir",
-    href: "/filiere",
+    image: "https://images.unsplash.com/photo-1558769132-cb1fac0840f2?q=80&w=1920&auto=format&fit=crop",
+    badge: "Excellence & Innovation",
+    title: "Des formations de haut niveau",
+    subtitle: "L'ISAM Kinshasa allie tradition artisanale et techniques modernes pour former les créateurs de demain.",
+    cta: "Voir les programmes",
+    ctaHref: "/filiere",
+    secondary: "À propos de l'ISAM",
+    secondaryHref: "/apropos",
   },
   {
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop",
-    title: "Façonnez votre Avenir",
-    subtitle: "ISAM Kinshasa — Scientia Splendet et Conscientia",
-    cta: "À propos",
-    href: "/apropos",
+    image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1920&auto=format&fit=crop",
+    badge: "Scientia Splendet",
+    title: "La référence nationale en Arts & Métiers",
+    subtitle: "Institution publique d'enseignement supérieur reconnue à Kinshasa. Formez-vous à l'excellence depuis plus de 50 ans.",
+    cta: "Nous rejoindre",
+    ctaHref: "/admissions",
+    secondary: "En savoir plus",
+    secondaryHref: "/apropos",
   },
 ];
 
@@ -49,95 +58,171 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    const t = setInterval(next, 5000);
+    const t = setInterval(next, 6000);
     return () => clearInterval(t);
   }, [next]);
 
-  const variants = {
-    enter: (dir) => ({ opacity: 0, x: dir > 0 ? 80 : -80 }),
-    center: { opacity: 1, x: 0 },
-    exit: (dir) => ({ opacity: 0, x: dir > 0 ? -80 : 80 }),
+  const slideVariants = {
+    enter: (dir) => ({ opacity: 0, scale: 1.04, x: dir > 0 ? 60 : -60 }),
+    center: { opacity: 1, scale: 1, x: 0 },
+    exit: (dir) => ({ opacity: 0, scale: 0.96, x: dir > 0 ? -60 : 60 }),
   };
 
+  const textVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.12, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    }),
+  };
+
+  const slide = slides[current];
+
   return (
-    <section className="relative w-full h-[75vh] min-h-[480px] overflow-hidden bg-gray-900">
+    <section className="relative w-full h-[88vh] min-h-[560px] overflow-hidden bg-gray-950">
       {/* Slides */}
       <AnimatePresence initial={false} custom={direction} mode="sync">
         <motion.div
           key={current}
           custom={direction}
-          variants={variants}
+          variants={slideVariants}
           initial="enter"
           animate="center"
           exit="exit"
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          transition={{ duration: 0.75, ease: [0.25, 0.1, 0.25, 1] }}
           className="absolute inset-0"
         >
-          {/* Background image */}
           <img
-            src={slides[current].image}
-            alt={slides[current].title}
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            src={slide.image}
+            alt={slide.title}
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
-
-          {/* Text */}
-          <div className="relative h-full flex items-center">
-            <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15, duration: 0.5 }}
-              >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight mb-4 max-w-xl">
-                  {slides[current].title}
-                </h1>
-                <p className="text-white/80 text-base md:text-lg max-w-lg mb-8">
-                  {slides[current].subtitle}
-                </p>
-                <Link
-                  href={slides[current].href}
-                  className="inline-block bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3 rounded-lg font-semibold text-sm transition-colors shadow-lg"
-                >
-                  {slides[current].cta}
-                </Link>
-              </motion.div>
-            </div>
-          </div>
+          {/* Multi-layer overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-950/85 via-gray-900/50 to-gray-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-transparent" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Left arrow */}
-      <button
-        onClick={prev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all border border-white/30"
-        aria-label="Précédent"
-      >
-        <ChevronLeft className="w-6 h-6" />
-      </button>
+      {/* Decorative elements */}
+      <div className="absolute top-20 right-20 w-72 h-72 bg-isam-blue/20 rounded-full blur-3xl pointer-events-none animate-pulse-soft" />
+      <div className="absolute bottom-20 right-40 w-48 h-48 bg-isam-yellow/15 rounded-full blur-3xl pointer-events-none animate-float-slow" />
 
-      {/* Right arrow */}
-      <button
-        onClick={next}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white transition-all border border-white/30"
-        aria-label="Suivant"
-      >
-        <ChevronRight className="w-6 h-6" />
-      </button>
+      {/* Content */}
+      <div className="relative h-full flex items-center">
+        <div className="max-w-screen-xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
+          <div className="max-w-2xl">
+            {/* Badge */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`badge-${current}`}
+                custom={0}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                className="mb-6"
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-isam-yellow/20 border border-isam-yellow/40 rounded-full text-isam-yellow text-xs font-bold uppercase tracking-widest backdrop-blur-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-isam-yellow animate-pulse" />
+                  {slide.badge}
+                </span>
+              </motion.div>
+            </AnimatePresence>
 
-      {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+            {/* Title */}
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={`title-${current}`}
+                custom={1}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6 font-display"
+              >
+                {slide.title}
+              </motion.h1>
+            </AnimatePresence>
+
+            {/* Subtitle */}
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={`sub-${current}`}
+                custom={2}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                className="text-white/75 text-base md:text-lg max-w-xl mb-10 leading-relaxed"
+              >
+                {slide.subtitle}
+              </motion.p>
+            </AnimatePresence>
+
+            {/* CTAs */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`cta-${current}`}
+                custom={3}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                className="flex flex-wrap gap-4"
+              >
+                <a
+                  href={slide.ctaHref}
+                  target={slide.ctaHref.startsWith("http") ? "_blank" : undefined}
+                  rel={slide.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5"
+                >
+                  {slide.cta}
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <Link
+                  href={slide.secondaryHref}
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
+                >
+                  {slide.secondary}
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => go(idx)}
-            className={`transition-all duration-300 rounded-full ${
-              idx === current ? "w-7 h-3 bg-white" : "w-3 h-3 bg-white/50 hover:bg-white/75"
+            className={`transition-all duration-400 rounded-full ${
+              idx === current
+                ? "w-8 h-2.5 bg-white"
+                : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
             }`}
             aria-label={`Slide ${idx + 1}`}
           />
         ))}
+      </div>
+
+      {/* Navigation arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 glass rounded-full flex items-center justify-center text-white transition-all hover:scale-110 hover:bg-white/30"
+        aria-label="Précédent"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 glass rounded-full flex items-center justify-center text-white transition-all hover:scale-110 hover:bg-white/30"
+        aria-label="Suivant"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Slide number indicator */}
+      <div className="absolute bottom-8 right-8 text-white/50 text-xs font-mono font-bold">
+        {String(current + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +11,12 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
 export const metadata = {
   title: "ISAM Kinshasa | Institut Supérieur des Arts et Métiers",
   description: "Bienvenue à l'ISAM Kinshasa, la référence en technique d'habillement, modélisme et esthétique.",
@@ -18,7 +24,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${playfair.variable} h-full antialiased`}>
+    <html lang="fr" className={`${inter.variable} ${playfair.variable} ${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         {children}
       </body>
