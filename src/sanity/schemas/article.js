@@ -95,6 +95,7 @@ export const articleSchema = {
           },
         },
         { type: "image", options: { hotspot: true } },
+        { type: "table" },
       ],
     },
   ],

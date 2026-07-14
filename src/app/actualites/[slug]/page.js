@@ -109,6 +109,47 @@ const portableTextComponents = {
         )}
       </figure>
     ),
+    table: ({ value }) => {
+      if (!value || !value.rows || value.rows.length === 0) return null;
+
+      return (
+        <div className="overflow-x-auto my-10 rounded-2xl shadow-sm border border-gray-200">
+          <table className="w-full text-left border-collapse min-w-[600px] bg-white">
+            <tbody className="divide-y divide-gray-200">
+              {value.rows.map((row, rowIndex) => {
+                const isHeader = rowIndex === 0;
+                return (
+                  <tr
+                    key={row._key || rowIndex}
+                    className={
+                      isHeader
+                        ? "bg-isam-blue text-white"
+                        : "hover:bg-isam-blue/5 transition-colors even:bg-slate-50"
+                    }
+                  >
+                    {row.cells.map((cell, cellIndex) => {
+                      const CellTag = isHeader ? "th" : "td";
+                      return (
+                        <CellTag
+                          key={cellIndex}
+                          className={`p-4 border-x align-top ${
+                            isHeader
+                              ? "font-bold font-display tracking-wide border-white/20 whitespace-nowrap text-sm"
+                              : "text-gray-700 text-sm leading-relaxed border-gray-100"
+                          }`}
+                        >
+                          {cell || ""}
+                        </CellTag>
+                      );
+                    })}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      );
+    },
   },
 };
 
