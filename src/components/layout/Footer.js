@@ -74,6 +74,7 @@ export default function Footer() {
                   { name: "Comité de gestion", href: "/comite" },
                   { name: "Admissions", href: "/admissions" },
                   { name: "Actualités", href: "/actualites" },
+                  { name: "Contact", href: "/contact" },
                 ].map((l) => (
                   <li key={l.name}>
                     <Link
