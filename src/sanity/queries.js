@@ -1,0 +1,63 @@
+/**
+ * Toutes les requêtes GROQ réutilisables pour le site ISAM Kinshasa.
+ */
+
+// ── Articles ──────────────────────────────────────────────────────────────────
+
+/** Tous les articles triés du plus récent au plus ancien */
+export const allArticlesQuery = `*[_type == "article"] | order(publishedAt desc) {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  category,
+  excerpt,
+  "image": image.asset->url,
+}`;
+
+/** Un article par slug (pour la page détail) */
+export const articleBySlugQuery = `*[_type == "article" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  category,
+  excerpt,
+  "image": image.asset->url,
+  body,
+}`;
+
+/** Les 3 derniers articles (pour la section accueil) */
+export const latestArticlesQuery = `*[_type == "article"] | order(publishedAt desc)[0...3] {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  category,
+  excerpt,
+  "image": image.asset->url,
+}`;
+
+// ── Événements ────────────────────────────────────────────────────────────────
+
+/** Tous les événements triés par date */
+export const allEventsQuery = `*[_type == "event"] | order(date asc) {
+  _id,
+  title,
+  date,
+  location,
+  time,
+  description,
+  category,
+}`;
+
+/** Les 3 prochains événements */
+export const upcomingEventsQuery = `*[_type == "event" && date >= $today] | order(date asc)[0...3] {
+  _id,
+  title,
+  date,
+  location,
+  time,
+  description,
+  category,
+}`;

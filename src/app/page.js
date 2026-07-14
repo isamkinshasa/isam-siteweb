@@ -6,10 +6,17 @@ import ResearchSection from "@/components/home/ResearchSection";
 import GallerySection from "@/components/home/GallerySection";
 import ContactSection from "@/components/home/ContactSection";
 import NewsCard from "@/components/ui/NewsCard";
+import OrganizationSection from "@/components/home/OrganizationSection";
+import StatsSection from "@/components/home/StatsSection";
 import { siteData } from "@/data/siteData";
 import Link from "next/link";
+import { sanityFetch } from "@/sanity/client";
+import { allEventsQuery, latestArticlesQuery } from "@/sanity/queries";
 
-export default function Home() {
+export default async function Home() {
+  const events = await sanityFetch({ query: allEventsQuery });
+  const articles = await sanityFetch({ query: latestArticlesQuery });
+
   return (
     <>
       <Header />
@@ -26,15 +33,26 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {siteData.news.slice(0, 3).map((article, index) => (
-                <NewsCard key={article.id} article={article} index={index} />
-              ))}
+              {articles.map((article, index) => {
+                const formattedArticle = {
+                  ...article,
+                  id: article._id,
+                  slug: article.slug?.current || article.slug,
+                  date: article.publishedAt 
+                    ? new Date(article.publishedAt).toLocaleDateString("fr-FR", { day: '2-digit', month: 'long', year: 'numeric' })
+                    : "Récemment",
+                };
+                return <NewsCard key={article._id} article={formattedArticle} index={index} />;
+              })}
             </div>
           </div>
         </section>
 
+        <OrganizationSection />
+        <StatsSection />
+
         <GallerySection />
-        <EventsSection />
+        <EventsSection events={events} />
         <ResearchSection />
         <ContactSection />
       </main>
