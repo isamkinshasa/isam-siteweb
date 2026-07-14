@@ -71,32 +71,40 @@ export default async function ActualitesPage() {
       <main className="bg-white min-h-screen">
 
         {/* ── Page Hero ── */}
-        <div className="bg-isam-blue pt-28 pb-16 relative overflow-hidden">
-          <div className="absolute inset-0 section-dots opacity-15" />
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-isam-yellow/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="relative w-full h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop"
+            alt="Actualités et Événements ISAM"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+            style={{ transformOrigin: "center" }}
+          />
+          {/* Gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-900/50 to-gray-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-isam-blue/60 to-transparent mix-blend-multiply" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 border border-white/25 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-isam-yellow animate-pulse" />
-              Dernières nouvelles
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white font-display mb-4 max-w-2xl leading-tight">
-              Actualités & Événements
-            </h1>
-            <p className="text-blue-200 text-lg max-w-xl leading-relaxed">
-              Restez informé des dernières nouvelles, annonces et activités de l'ISAM Kinshasa.
-            </p>
-
-            {/* Stats strip */}
-            <div className="flex flex-wrap gap-6 mt-10">
-              <div className="flex items-center gap-2 text-white">
-                <Newspaper className="w-4 h-4 text-isam-yellow" />
-                <span className="text-sm font-medium">{displayArticles.length} article{displayArticles.length > 1 ? "s" : ""}</span>
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center sm:text-left mt-20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 border border-white/25 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-6 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-isam-yellow animate-pulse" />
+                Dernières nouvelles
               </div>
-              <div className="flex items-center gap-2 text-white">
-                <Calendar className="w-4 h-4 text-isam-yellow" />
-                <span className="text-sm font-medium">{displayEvents.length} événement{displayEvents.length > 1 ? "s" : ""}</span>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight font-display max-w-3xl mb-6">
+                Actualités & Événements
+              </h1>
+              <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed">
+                Restez informé des dernières nouvelles, annonces et activités de l'Institut Supérieur des Arts et Métiers de Kinshasa.
+              </p>
+              
+              {/* Stats strip */}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-6 mt-10">
+                <div className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20">
+                  <Newspaper className="w-5 h-5 text-isam-yellow" />
+                  <span className="text-sm font-medium">{displayArticles.length} article{displayArticles.length > 1 ? "s" : ""}</span>
+                </div>
+                <div className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20">
+                  <Calendar className="w-5 h-5 text-isam-yellow" />
+                  <span className="text-sm font-medium">{displayEvents.length} événement{displayEvents.length > 1 ? "s" : ""}</span>
+                </div>
               </div>
             </div>
           </div>

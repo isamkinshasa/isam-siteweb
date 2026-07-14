@@ -36,22 +36,58 @@ export default function FilierePage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-24 flex-grow bg-white min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-          <SectionHeader 
-            title="Organisation de la Formation" 
-            subtitle="Pédagogie" 
+      <main className="bg-white min-h-screen">
+        
+        {/* ── Page Hero ── */}
+        <div className="relative w-full h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
+          <img
+            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1920&auto=format&fit=crop"
+            alt="Atelier ISAM Kinshasa"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+            style={{ transformOrigin: "center" }}
           />
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          {/* Gradient overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-900/50 to-gray-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-isam-blue/60 to-transparent mix-blend-multiply" />
+
+          <div className="absolute inset-0 flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center sm:text-left mt-20">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 border border-white/25 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-6 backdrop-blur-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-isam-yellow animate-pulse" />
+                Formations
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight font-display max-w-3xl mb-6">
+                Nos Mentions & Filières
+              </h1>
+              <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed">
+                Découvrez les formations d'excellence offertes à l'ISAM Kinshasa pour façonner les créateurs et entrepreneurs de demain.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Organisation Section ── */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border bg-isam-blue/8 border-isam-blue/20 text-isam-blue mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-isam-blue animate-pulse" />
+              Pédagogie
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 leading-tight">
+              Organisation de la Formation
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {formationsOrga.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="bg-isam-light border border-gray-100 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                  <div className="w-14 h-14 bg-isam-blue/10 rounded-2xl flex items-center justify-center text-isam-blue mb-6">
-                    <Icon className="w-7 h-7" />
+                <div key={index} className="bg-isam-light border border-gray-100 rounded-3xl p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+                  <div className="w-16 h-16 bg-white shadow-sm border border-gray-100 rounded-2xl flex items-center justify-center text-isam-blue mb-6 group-hover:bg-isam-blue group-hover:text-white transition-colors duration-300">
+                    <Icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 font-serif">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">{item.desc}</p>
+                  <h3 className="text-xl font-bold mb-4 font-display text-slate-800">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               );
             })}

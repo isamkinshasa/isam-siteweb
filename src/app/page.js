@@ -13,6 +13,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { sanityFetch } from "@/sanity/client";
 import { allEventsQuery, latestArticlesQuery } from "@/sanity/queries";
+import NewsletterSection from "@/components/home/NewsletterSection";
 
 export default async function Home() {
   const events = await sanityFetch({ query: allEventsQuery });
@@ -69,6 +70,7 @@ export default async function Home() {
         <EventsSection events={events} />
         <ResearchSection />
         <ContactSection />
+        <NewsletterSection />
       </main>
       <Footer />
     </>

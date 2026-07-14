@@ -251,93 +251,75 @@ export default async function ArticleDetailPage({ params }) {
       <Header />
       <main className="bg-white min-h-screen">
 
-        {/* ── Hero image ── */}
-        {article.image ? (
-          <div className="relative w-full h-[55vh] min-h-[380px] overflow-hidden bg-gray-900">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="absolute inset-0 w-full h-full object-cover scale-105"
-              style={{ transformOrigin: "center" }}
-            />
-            {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-950/85 via-gray-900/40 to-gray-900/10" />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-950/40 to-transparent" />
+        {/* ── Page Hero (Generic) ── */}
+        <div className="relative w-full h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop"
+            alt="Actualités ISAM"
+            className="absolute inset-0 w-full h-full object-cover scale-105"
+            style={{ transformOrigin: "center" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-900/60 to-gray-900/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-isam-blue/60 to-transparent mix-blend-multiply" />
+          
+          <div className="absolute inset-0 flex items-center mt-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+              <Link
+                href="/actualites"
+                className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors mb-6 group"
+              >
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                Retour aux actualités
+              </Link>
+              <h1 className="text-3xl md:text-4xl font-bold text-white font-display">
+                Lecture de l'article
+              </h1>
+            </div>
+          </div>
+        </div>
 
-            {/* Title inside hero */}
-            <div className="absolute inset-0 flex items-end">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 w-full">
-                {/* Back link */}
-                <Link
-                  href="/actualites"
-                  className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm font-medium transition-colors mb-6 group"
-                >
-                  <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-                  Retour aux actualités
-                </Link>
+        {/* ── Content area ── */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid lg:grid-cols-[1fr_320px] gap-12 items-start">
 
-                {/* Badges */}
-                <div className="flex flex-wrap items-center gap-3 mb-4">
+            {/* ── Article body ── */}
+            <div>
+              {/* Article Header (Title, Meta, Image) */}
+              <div className="mb-10">
+                <div className="flex flex-wrap items-center gap-3 mb-6">
                   {article.category && (
-                    <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border backdrop-blur-sm ${catStyle} bg-white/90`}>
+                    <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border ${catStyle}`}>
                       <Tag className="w-3 h-3" />
                       {catLabel}
                     </span>
                   )}
                   {publishedDate && (
-                    <span className="inline-flex items-center gap-1.5 text-white/75 text-xs bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
+                    <span className="inline-flex items-center gap-1.5 text-gray-500 text-xs bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
                       <Calendar className="w-3.5 h-3.5" />
                       {publishedDate}
                     </span>
                   )}
-                  <span className="inline-flex items-center gap-1.5 text-white/75 text-xs bg-white/15 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
+                  <span className="inline-flex items-center gap-1.5 text-gray-500 text-xs bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
                     <Clock className="w-3.5 h-3.5" />
                     {readTime} min de lecture
                   </span>
                 </div>
-
-                {/* Title */}
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight font-display max-w-3xl">
+                
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 leading-tight font-display mb-8">
                   {article.title}
                 </h1>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* No image — simple header bar */
-          <div className="bg-isam-blue pt-28 pb-14">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <Link
-                href="/actualites"
-                className="inline-flex items-center gap-2 text-blue-200 hover:text-white text-sm font-medium transition-colors mb-6 group"
-              >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-                Retour aux actualités
-              </Link>
-              <div className="flex flex-wrap items-center gap-3 mb-4">
-                {article.category && (
-                  <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border bg-white/90 ${catStyle}`}>
-                    <Tag className="w-3 h-3" />
-                    {catLabel}
-                  </span>
-                )}
-                {publishedDate && (
-                  <span className="text-blue-200 text-xs">{publishedDate}</span>
+
+                {article.image && (
+                  <div className="w-full rounded-[2rem] overflow-hidden shadow-sm mb-10 border border-gray-100">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full max-h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
                 )}
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight font-display max-w-3xl">
-                {article.title}
-              </h1>
-            </div>
-          </div>
-        )}
 
-        {/* ── Content area ── */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid lg:grid-cols-[1fr_320px] gap-12 items-start">
-
-            {/* ── Article body ── */}
-            <div>
               {/* Excerpt lead */}
               {article.excerpt && (
                 <div className="relative mb-10 pl-6 py-5 pr-6 bg-isam-light rounded-2xl border-l-4 border-isam-blue overflow-hidden">
