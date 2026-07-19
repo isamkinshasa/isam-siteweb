@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Link from "next/link";
+import EnrollButton from "@/components/ui/EnrollButton";
 import { CheckCircle } from "lucide-react";
 
 export const metadata = {
@@ -112,15 +113,14 @@ export default function AdmissionsPage() {
                   <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">Inscriptions 2025-2026</h2>
                   <p className="text-blue-100 mb-10 text-lg leading-relaxed">Les inscriptions pour la nouvelle année académique sont officiellement ouvertes. Sécurisez votre place dans la meilleure école de mode d'Afrique centrale.</p>
                   
-                  <Link 
-                    href="/portail-etudiant" 
+                  <EnrollButton 
                     className="flex items-center justify-center gap-3 w-full bg-isam-yellow text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-isam-yellow/20"
                   >
                     S'inscrire en ligne
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                  </Link>
+                  </EnrollButton>
                   
                   <div className="mt-8 flex items-center justify-center gap-3 text-sm text-blue-200 bg-white/5 py-3 px-4 rounded-lg border border-white/10">
                     <svg className="w-5 h-5 text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

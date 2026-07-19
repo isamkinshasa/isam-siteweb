@@ -14,6 +14,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Link from "next/link";
+import EnrollButton from "@/components/ui/EnrollButton";
 
 export const revalidate = 60;
 
@@ -443,13 +444,12 @@ export default async function ArticleDetailPage({ params }) {
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   Intéressé par nos formations ? Déposez votre candidature dès maintenant.
                 </p>
-                <Link
-                  href="/portail-etudiant"
+                <EnrollButton
                   className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 hover:-translate-y-0.5 w-full justify-center"
                 >
                   S'inscrire maintenant
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </EnrollButton>
               </div>
             </aside>
           </div>

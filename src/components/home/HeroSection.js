@@ -169,9 +169,15 @@ export default function HeroSection() {
               >
                 <a
                   href={slide.ctaHref}
+                  onClick={(e) => {
+                    if (slide.cta && slide.cta.toLowerCase().includes("inscrire")) {
+                      e.preventDefault();
+                      alert("Bientôt disponible !");
+                    }
+                  }}
                   target={slide.ctaHref.startsWith("http") ? "_blank" : undefined}
                   rel={slide.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5 cursor-pointer"
                 >
                   {slide.cta}
                   <ArrowRight className="w-4 h-4" />

@@ -136,6 +136,10 @@ export default function Footer() {
           {/* Bottom bar */}
           <div className="pt-8 border-t border-white/8 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-gray-500">
             <p>© {new Date().getFullYear()} ISAM Kinshasa. Tous droits réservés.</p>
+            <p className="flex items-center gap-1 text-gray-400">
+              Conçu avec ❤️ par
+              <Link href="https://zanoxgroup.net" target="_blank" className="font-semibold text-white">Zanox Group</Link>
+            </p>
             <div className="flex gap-4">
               <Link href="#" className="hover:text-white transition-colors">Politique de confidentialité</Link>
               <Link href="#" className="hover:text-white transition-colors">Mentions légales</Link>

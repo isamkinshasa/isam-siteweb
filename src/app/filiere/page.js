@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SectionHeader from "@/components/ui/SectionHeader";
 import Link from "next/link";
+import EnrollButton from "@/components/ui/EnrollButton";
 import { ArrowRight, Scissors, Palette, Sparkles, BookOpen, Microscope, Briefcase, GraduationCap } from "lucide-react";
 
 export const metadata = {
@@ -118,7 +119,7 @@ export default function FilierePage() {
                     <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-isam-blue" /> Didactique de mode</li>
                     <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-isam-blue" /> Gestion des ateliers de production</li>
                   </ul>
-                  <Link href="/admissions" className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></Link>
+                  <EnrollButton className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></EnrollButton>
                 </div>
               </div>
 
@@ -137,7 +138,7 @@ export default function FilierePage() {
                     <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-isam-yellow" /> Management de la Mode</li>
                     <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-isam-yellow" /> Stylisme professionnel</li>
                   </ul>
-                  <Link href="/admissions" className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></Link>
+                  <EnrollButton className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></EnrollButton>
                 </div>
               </div>
 
@@ -156,7 +157,7 @@ export default function FilierePage() {
                     <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-isam-green" /> Coiffure professionnelle</li>
                     <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-isam-green" /> Gestion de salon de beauté</li>
                   </ul>
-                  <Link href="/admissions" className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></Link>
+                  <EnrollButton className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></EnrollButton>
                 </div>
               </div>
 

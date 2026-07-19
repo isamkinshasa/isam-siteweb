@@ -7,6 +7,7 @@ import { sanityFetch } from "@/sanity/client";
 import { allArticlesQuery, allEventsQuery } from "@/sanity/queries";
 import { Calendar, Newspaper, ArrowRight, Rss } from "lucide-react";
 import Link from "next/link";
+import EnrollButton from "@/components/ui/EnrollButton";
 
 export const metadata = {
   title: "Actualités | ISAM Kinshasa",
@@ -199,13 +200,12 @@ export default async function ActualitesPage() {
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   Inscrivez-vous à l'une de nos formations professionnelles pour l'année académique 2025–2026.
                 </p>
-                <Link
-                  href="/portail-etudiant"
+                <EnrollButton
                   className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 w-full justify-center hover:-translate-y-0.5"
                 >
                   S'inscrire en ligne
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </EnrollButton>
               </div>
             </aside>
           </div>
