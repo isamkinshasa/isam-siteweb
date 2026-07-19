@@ -7,34 +7,59 @@ import SectionHeader from "@/components/ui/SectionHeader";
 
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1558769132-cb1fac0840f2?q=80&w=800&auto=format&fit=crop",
-    alt: "Atelier de Design",
+    src: "/gallery/photo-1.jpg",
+    alt: "Atelier de couture en pratique",
+    category: "Pratique",
+  },
+  {
+    src: "/gallery/photo-2.jpg",
+    alt: "Salle de machines à coudre",
     category: "Ateliers",
   },
   {
-    src: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=800&auto=format&fit=crop",
-    alt: "Défilé de mode",
-    category: "Événements",
+    src: "/gallery/photo-3.jpg",
+    alt: "Création de mode",
+    category: "Haute Couture",
   },
   {
-    src: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=800&auto=format&fit=crop",
-    alt: "Atelier de couture",
+    src: "/gallery/photo-4.jpg",
+    alt: "Étudiantes en plein travail",
     category: "Formation",
   },
   {
-    src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=800&auto=format&fit=crop",
-    alt: "Remise des diplômes",
-    category: "Cérémonie",
+    src: "/gallery/photo-5.jpg",
+    alt: "Mannequin avec robe",
+    category: "Créations",
   },
   {
-    src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=800&auto=format&fit=crop",
-    alt: "Masterclass Coiffure",
-    category: "Coiffure",
+    src: "/gallery/photo-6.jpg",
+    alt: "Vestes imprimées léopard et wax",
+    category: "Créations Homme",
   },
   {
-    src: "https://images.unsplash.com/photo-1516280440502-368535a26685?q=80&w=800&auto=format&fit=crop",
-    alt: "Événement culturel",
-    category: "Culture",
+    src: "/gallery/photo-7.jpg",
+    alt: "Robes et créations en atelier",
+    category: "Haute Couture",
+  },
+  {
+    src: "/gallery/photo-8.jpg",
+    alt: "Combinaison de travail de sécurité",
+    category: "Vêtements Pro",
+  },
+  {
+    src: "/gallery/photo-9.jpg",
+    alt: "Robe de soirée élégante",
+    category: "Créations",
+  },
+  {
+    src: "/gallery/photo-10.jpg",
+    alt: "Veste noire et jupe beige aux motifs léopard",
+    category: "Créations",
+  },
+  {
+    src: "/gallery/photo-11.jpg",
+    alt: "Modèles de robes d'exposition",
+    category: "Haute Couture",
   },
 ];
 

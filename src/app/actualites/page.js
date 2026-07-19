@@ -199,15 +199,13 @@ export default async function ActualitesPage() {
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   Inscrivez-vous à l'une de nos formations professionnelles pour l'année académique 2025–2026.
                 </p>
-                <a
-                  href="https://isam.optsolution.net/demande-d-inscription-en-ligne-2025-2026"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/portail-etudiant"
                   className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 w-full justify-center hover:-translate-y-0.5"
                 >
                   S'inscrire en ligne
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </aside>
           </div>

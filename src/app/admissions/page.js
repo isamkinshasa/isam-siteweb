@@ -112,23 +112,21 @@ export default function AdmissionsPage() {
                   <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">Inscriptions 2025-2026</h2>
                   <p className="text-blue-100 mb-10 text-lg leading-relaxed">Les inscriptions pour la nouvelle année académique sont officiellement ouvertes. Sécurisez votre place dans la meilleure école de mode d'Afrique centrale.</p>
                   
-                  <a 
-                    href="https://isam.optsolution.net/demande-d-inscription-en-ligne-2025-2026" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <Link 
+                    href="/portail-etudiant" 
                     className="flex items-center justify-center gap-3 w-full bg-isam-yellow text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-yellow-400 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-isam-yellow/20"
                   >
                     S'inscrire en ligne
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
-                  </a>
+                  </Link>
                   
                   <div className="mt-8 flex items-center justify-center gap-3 text-sm text-blue-200 bg-white/5 py-3 px-4 rounded-lg border border-white/10">
                     <svg className="w-5 h-5 text-green-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                    Paiement et plateforme sécurisés (OptSolution)
+                    Paiement et plateforme sécurisés
                   </div>
                 </div>
               </div>

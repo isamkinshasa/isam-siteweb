@@ -114,7 +114,7 @@ export default function AboutPage() {
               </div>
               <div className="text-center px-4 group">
                 <div className="text-5xl md:text-6xl font-display font-bold mb-3 text-isam-yellow group-hover:scale-110 transition-transform duration-300">{siteData.stats.laboratories}</div>
-                <p className="text-blue-100 text-sm md:text-base font-medium uppercase tracking-wider">Laboratoires</p>
+                <p className="text-blue-100 text-sm md:text-base font-medium uppercase tracking-wider">Ateliers</p>
               </div>
               <div className="text-center px-4 group">
                 <div className="text-5xl md:text-6xl font-display font-bold mb-3 text-isam-yellow group-hover:scale-110 transition-transform duration-300">{siteData.stats.partners}</div>

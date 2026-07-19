@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { siteData } from "@/data/siteData";
-import { Users, UserCheck, FlaskConical, Globe } from "lucide-react";
+import { Users, UserCheck, Scissors, Globe } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 function AnimatedNumber({ value }) {
@@ -49,9 +49,9 @@ const stats = [
     sub: "experts dans leur domaine",
   },
   {
-    icon: FlaskConical,
+    icon: Scissors,
     value: siteData.stats.laboratories,
-    label: "Laboratoires",
+    label: "Ateliers",
     sub: "dédiés à la pratique",
   },
   {

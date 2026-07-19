@@ -92,33 +92,33 @@ export const siteData = {
   committee: [
     {
       role: "Directeur Général",
-      name: "Prof. Rév. Sr. Florence Mbiya Muadi",
+      name: "Prof. Sr. Florence Mbiya Muadi",
       description: "Architecte de la modernisation de l'ISAM-Kinshasa",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+      image: "/committee/dg.jpg",
     },
     {
       role: "Secrétaire Général Académique",
-      name: "Nom du SGAC",
+      name: "Prof. Ngonzo Kitumba",
       description: "Responsable de la coordination académique et pédagogique.",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop",
+      image: "/committee/sgac.jpg",
     },
     {
       role: "Secrétaire Général Administratif",
-      name: "Nom du SGAD",
+      name: "CT Marie Likaho",
       description: "Gestion des ressources humaines et administration.",
-      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop",
+      image: "/committee/sgad.jpg",
     },
     {
       role: "Secrétaire Général à la Recherche",
-      name: "Nom du SGR",
+      name: "Prof. Jean Eloho",
       description: "Promotion de l'excellence en recherche scientifique.",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop",
+      image: "/committee/sgr.jpg",
     },
     {
       role: "Administrateur du Budget",
-      name: "Nom de l'AB",
+      name: "Didier Nsafu Didiena",
       description: "Gestion financière et patrimoniale de l'institut.",
-      image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop",
+      image: "/committee/ab.jpg",
     }
   ],
   studentLife: [

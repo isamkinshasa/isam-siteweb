@@ -7,17 +7,17 @@ import { useState, useEffect, useCallback } from "react";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1920&auto=format&fit=crop",
+    image: "/hero/hero-1.jpg",
     badge: "Inscriptions 2025-2026",
     title: "Façonnez votre Avenir à l'ISAM",
     subtitle: "Rejoignez nos programmes spécialisés en habillement, modélisme et esthétique. L'excellence académique au service de votre talent.",
     cta: "S'inscrire maintenant",
-    ctaHref: "https://isam.optsolution.net/demande-d-inscription-en-ligne-2025-2026",
+    ctaHref: "/portail-etudiant",
     secondary: "Découvrir nos filières",
     secondaryHref: "/filiere",
   },
   {
-    image: "https://images.unsplash.com/photo-1558769132-cb1fac0840f2?q=80&w=1920&auto=format&fit=crop",
+    image: "/hero/hero-2.jpg",
     badge: "Excellence & Innovation",
     title: "Des formations de haut niveau",
     subtitle: "L'ISAM Kinshasa allie tradition artisanale et techniques modernes pour former les créateurs de demain.",
@@ -27,7 +27,7 @@ const slides = [
     secondaryHref: "/apropos",
   },
   {
-    image: "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1920&auto=format&fit=crop",
+    image: "/hero/hero-3.jpg",
     badge: "Scientia Splendet",
     title: "La référence nationale en Arts & Métiers",
     subtitle: "Institution publique d'enseignement supérieur reconnue à Kinshasa. Formez-vous à l'excellence depuis plus de 50 ans.",

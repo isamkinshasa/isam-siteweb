@@ -58,7 +58,7 @@ export default function ResearchSection() {
               className="absolute -top-4 -left-4 bg-isam-blue text-white rounded-2xl px-4 py-3 shadow-lg shadow-isam-blue/30"
             >
               <p className="text-xs font-bold uppercase tracking-wide">Système LMD</p>
-              <p className="text-isam-yellow text-xs">Accrédité ESU RDC</p>
+              <p className="text-isam-yellow text-xs">ESURSI</p>
             </motion.div>
           </motion.div>
 
