@@ -16,8 +16,27 @@ import { allEventsQuery, latestArticlesQuery } from "@/sanity/queries";
 import NewsletterSection from "@/components/home/NewsletterSection";
 
 export default async function Home() {
-  const events = await sanityFetch({ query: allEventsQuery });
-  const articles = await sanityFetch({ query: latestArticlesQuery });
+  const events = (await sanityFetch({ query: allEventsQuery, tags: ["event"] })) || [];
+  const rawArticles = (await sanityFetch({ query: latestArticlesQuery, tags: ["article"] })) || [];
+
+  const displayArticles =
+    rawArticles && rawArticles.length > 0
+      ? rawArticles.map((a) => ({
+          id: a._id,
+          slug: typeof a.slug === "object" ? a.slug?.current : a.slug,
+          title: a.title,
+          category: a.category,
+          date: a.publishedAt || a._createdAt
+            ? new Date(a.publishedAt || a._createdAt).toLocaleDateString("fr-FR", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+              })
+            : "Récemment",
+          excerpt: a.excerpt,
+          image: a.image || "https://images.unsplash.com/photo-1523580494112-071f1629bcce?q=80&w=800",
+        }))
+      : [];
 
   return (
     <>
@@ -48,17 +67,15 @@ export default async function Home() {
               </Link>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
-              {articles.map((article, index) => {
-                const formattedArticle = {
-                  ...article,
-                  id: article._id,
-                  slug: article.slug?.current || article.slug,
-                  date: article.publishedAt
-                    ? new Date(article.publishedAt).toLocaleDateString("fr-FR", { day: "2-digit", month: "long", year: "numeric" })
-                    : "Récemment",
-                };
-                return <NewsCard key={article._id} article={formattedArticle} index={index} />;
-              })}
+              {displayArticles.length === 0 ? (
+                <div className="col-span-3 text-center py-12 bg-white rounded-2xl border border-gray-100">
+                  <p className="text-gray-500 font-medium">Aucune actualité disponible pour le moment.</p>
+                </div>
+              ) : (
+                displayArticles.map((article, index) => (
+                  <NewsCard key={article.id || index} article={article} index={index} />
+                ))
+              )}
             </div>
           </div>
         </section>

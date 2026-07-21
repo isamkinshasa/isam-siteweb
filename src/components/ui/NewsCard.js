@@ -12,7 +12,8 @@ const categoryColors = {
 };
 
 export default function NewsCard({ article, index }) {
-  const href = article.slug ? `/actualites/${article.slug}` : "#";
+  const slugStr = typeof article.slug === "object" ? article.slug?.current : article.slug;
+  const href = slugStr ? `/actualites/${slugStr}` : "#";
   const categoryStyle = categoryColors[article.category] || "bg-isam-blue/10 text-isam-blue";
 
   return (

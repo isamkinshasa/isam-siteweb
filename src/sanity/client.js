@@ -13,11 +13,19 @@ export const client = createClient({
  * @param {object} params - Paramètres optionnels
  */
 export async function sanityFetch({ query, params = {}, tags = [] }) {
-  return client.fetch(query, params, {
-    next: {
-      // Revalidation toutes les 60 secondes (ISR)
-      revalidate: 60,
-      tags,
-    },
-  });
+  try {
+    const isDev = process.env.NODE_ENV === "development";
+    const data = await client.fetch(query, params, {
+      next: {
+        // En développement, 0 sec pour voir les nouveaux articles immédiatement sans attendre le cache ISR
+        revalidate: isDev ? 0 : 60,
+        tags,
+      },
+    });
+    return data;
+  } catch (error) {
+    console.error("Erreur de récupération Sanity :", error);
+    return null;
+  }
 }
+

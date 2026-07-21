@@ -234,8 +234,8 @@ export default async function ArticleDetailPage({ params }) {
 
   if (!article) notFound();
 
-  const publishedDate = article.publishedAt
-    ? new Date(article.publishedAt).toLocaleDateString("fr-FR", {
+  const publishedDate = article.publishedAt || article._createdAt
+    ? new Date(article.publishedAt || article._createdAt).toLocaleDateString("fr-FR", {
         weekday: "long",
         day: "numeric",
         month: "long",

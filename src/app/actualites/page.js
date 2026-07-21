@@ -22,10 +22,12 @@ export default async function ActualitesPage() {
   let events = [];
 
   try {
-    [articles, events] = await Promise.all([
+    const [fetchedArticles, fetchedEvents] = await Promise.all([
       sanityFetch({ query: allArticlesQuery, tags: ["article"] }),
       sanityFetch({ query: allEventsQuery, tags: ["event"] }),
     ]);
+    articles = fetchedArticles || [];
+    events = fetchedEvents || [];
   } catch (error) {
     console.error("Erreur Sanity :", error);
   }
@@ -34,11 +36,11 @@ export default async function ActualitesPage() {
     articles && articles.length > 0
       ? articles.map((a) => ({
           id: a._id,
-          slug: a.slug?.current,
+          slug: typeof a.slug === "object" ? a.slug?.current : a.slug,
           title: a.title,
           category: a.category,
-          date: a.publishedAt
-            ? new Date(a.publishedAt).toLocaleDateString("fr-FR", {
+          date: a.publishedAt || a._createdAt
+            ? new Date(a.publishedAt || a._createdAt).toLocaleDateString("fr-FR", {
                 day: "numeric",
                 month: "long",
                 year: "numeric",
@@ -47,7 +49,7 @@ export default async function ActualitesPage() {
           excerpt: a.excerpt,
           image: a.image || "https://images.unsplash.com/photo-1523580494112-071f1629bcce?q=80&w=800",
         }))
-      : siteData.news;
+      : [];
 
   const displayEvents =
     events && events.length > 0
@@ -62,9 +64,10 @@ export default async function ActualitesPage() {
             title: e.title,
             time: e.time || e.location || "",
             description: e.description,
+            image: e.image,
           };
         })
-      : siteData.events;
+      : [];
 
   return (
     <>

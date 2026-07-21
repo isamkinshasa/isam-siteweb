@@ -10,13 +10,25 @@ export default function EventCard({ event, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
-      className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-white hover:shadow-sm border border-transparent hover:border-gray-100 transition-all duration-300 cursor-default"
+      className="group flex flex-col p-4 rounded-2xl hover:bg-white hover:shadow-sm border border-transparent hover:border-gray-100 transition-all duration-300 cursor-default"
     >
-      {/* Date badge */}
-      <div className="flex-shrink-0 bg-isam-blue group-hover:scale-105 transition-transform duration-300 rounded-xl p-3 text-center min-w-[52px] shadow-md shadow-isam-blue/20">
-        <div className="text-xl font-bold text-white leading-none font-display">{event.day}</div>
-        <div className="text-[9px] text-blue-200 font-medium mt-0.5 capitalize leading-tight">{event.month}</div>
-      </div>
+      {/* Image de couverture (optionnelle) */}
+      {event.image && (
+        <div className="w-full h-32 rounded-xl overflow-hidden mb-4 relative">
+          <img
+            src={event.image}
+            alt={event.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      )}
+      
+      <div className="flex items-start gap-4 w-full">
+        {/* Date badge */}
+        <div className="flex-shrink-0 bg-isam-blue group-hover:scale-105 transition-transform duration-300 rounded-xl p-3 text-center min-w-[52px] shadow-md shadow-isam-blue/20">
+          <div className="text-xl font-bold text-white leading-none font-display">{event.day}</div>
+          <div className="text-[9px] text-blue-200 font-medium mt-0.5 capitalize leading-tight">{event.month}</div>
+        </div>
 
       {/* Content */}
       <div className="flex-1 min-w-0">
@@ -32,6 +44,7 @@ export default function EventCard({ event, index }) {
         {event.description && (
           <p className="text-xs text-gray-400 line-clamp-2 leading-relaxed">{event.description}</p>
         )}
+      </div>
       </div>
     </motion.div>
   );

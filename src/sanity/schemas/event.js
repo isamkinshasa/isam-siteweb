@@ -46,6 +46,21 @@ export const eventSchema = {
       type: "text",
       rows: 4,
     },
+    {
+      name: "image",
+      title: "Photo de couverture",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: "alt",
+          title: "Texte alternatif",
+          type: "string",
+        },
+      ],
+    },
   ],
   preview: {
     select: {
