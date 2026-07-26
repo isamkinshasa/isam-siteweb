@@ -21,10 +21,19 @@ export const dynamicParams = false;
 /** Génère les slugs statiques pour les routes dynamiques */
 export async function generateStaticParams() {
   try {
-    const articles = await sanityFetch({ query: allArticlesQuery, tags: ["article"] });
-    return (articles || [])
-      .filter((a) => !!a.slug?.current)
-      .map((a) => ({ slug: a.slug.current }));
+    const articles = await sanityFetch({ query: allArticlesQuery, tags: ["article"] }) || [];
+    
+    // a.slug est déjà une chaîne de caractères grâce à la requête "slug": slug.current
+    const slugs = articles
+      .filter((a) => !!a.slug)
+      .map((a) => ({ slug: a.slug }));
+      
+    // Next.js plante si generateStaticParams retourne un tableau vide avec output: export
+    if (slugs.length === 0) {
+      return [{ slug: "no-articles" }];
+    }
+    
+    return slugs;
   } catch {
     return [];
   }
