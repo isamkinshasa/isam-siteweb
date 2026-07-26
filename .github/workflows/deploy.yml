@@ -25,6 +25,10 @@ jobs:
 
       - name: 4. Build de l'application Next.js
         run: npm run build
+        env:
+          NEXT_PUBLIC_SANITY_PROJECT_ID: "a9cb5294"
+          NEXT_PUBLIC_SANITY_DATASET: "production"
+          NEXT_PUBLIC_SANITY_API_VERSION: "2024-01-01"
 
       - name: 5. Déploiement vers LWS via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
