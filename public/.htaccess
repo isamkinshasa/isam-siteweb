@@ -1,0 +1,19 @@
+# Configuration Apache pour Next.js Export Statique & Sanity Studio sur LWS
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Redirection SPA Sanity Studio (/structure et toutes ses sous-routes)
+  # Redirige /structure et toutes ses sous-routes (/structure/desk, /structure/intent...) vers /structure.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^structure(/.*)?$ /structure.html [L]
+
+  # 2. URLs propres pour l'ensemble du site Next.js (ex: /actualites -> actualites.html)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # 3. Page 404 personnalisée Next.js
+  ErrorDocument 404 /404.html
+</IfModule>
