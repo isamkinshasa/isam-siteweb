@@ -14,11 +14,8 @@ export const client = createClient({
  */
 export async function sanityFetch({ query, params = {}, tags = [] }) {
   try {
-    const isDev = process.env.NODE_ENV === "development";
     const data = await client.fetch(query, params, {
       next: {
-        // En développement, 0 sec pour voir les nouveaux articles immédiatement sans attendre le cache ISR
-        revalidate: isDev ? 0 : 60,
         tags,
       },
     });
