@@ -110,7 +110,7 @@ export default function AdmissionsPage() {
                     </svg>
                   </div>
                   
-                  <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">Inscriptions 2025-2026</h2>
+                  <h2 className="text-3xl lg:text-4xl font-display font-bold mb-4">Inscriptions 2026-2027</h2>
                   <p className="text-blue-100 mb-10 text-lg leading-relaxed">Les inscriptions pour la nouvelle année académique sont officiellement ouvertes. Sécurisez votre place dans la meilleure école de mode d'Afrique centrale.</p>
                   
                   <EnrollButton 

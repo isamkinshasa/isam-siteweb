@@ -12,11 +12,12 @@ import { siteData } from "@/data/siteData";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { sanityFetch } from "@/sanity/client";
-import { allEventsQuery, latestArticlesQuery } from "@/sanity/queries";
+import { upcomingEventsQuery, latestArticlesQuery } from "@/sanity/queries";
 import NewsletterSection from "@/components/home/NewsletterSection";
 
 export default async function Home() {
-  const events = (await sanityFetch({ query: allEventsQuery, tags: ["event"] })) || [];
+  const today = new Date().toISOString().split("T")[0];
+  const events = (await sanityFetch({ query: upcomingEventsQuery, params: { today }, tags: ["event"] })) || [];
   const rawArticles = (await sanityFetch({ query: latestArticlesQuery, tags: ["article"] })) || [];
 
   const displayArticles =

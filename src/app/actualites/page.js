@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import { siteData } from "@/data/siteData";
 import NewsCard from "@/components/ui/NewsCard";
 import EventCard from "@/components/ui/EventCard";
+import FeaturedEvent from "@/components/ui/FeaturedEvent";
 import { sanityFetch } from "@/sanity/client";
 import { allArticlesQuery, allEventsQuery } from "@/sanity/queries";
 import { Calendar, Newspaper, ArrowRight, Rss } from "lucide-react";
@@ -15,7 +16,7 @@ export const metadata = {
     "Toutes les actualités et événements de l'Institut Supérieur des Arts et Métiers de Kinshasa.",
 };
 
-export const revalidate = 60;
+
 
 export default async function ActualitesPage() {
   let articles = [];
@@ -35,38 +36,39 @@ export default async function ActualitesPage() {
   const displayArticles =
     articles && articles.length > 0
       ? articles.map((a) => ({
-          id: a._id,
-          slug: typeof a.slug === "object" ? a.slug?.current : a.slug,
-          title: a.title,
-          category: a.category,
-          date: a.publishedAt || a._createdAt
-            ? new Date(a.publishedAt || a._createdAt).toLocaleDateString("fr-FR", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })
-            : "",
-          excerpt: a.excerpt,
-          image: a.image || "https://images.unsplash.com/photo-1523580494112-071f1629bcce?q=80&w=800",
-        }))
+        id: a._id,
+        slug: typeof a.slug === "object" ? a.slug?.current : a.slug,
+        title: a.title,
+        category: a.category,
+        date: a.publishedAt || a._createdAt
+          ? new Date(a.publishedAt || a._createdAt).toLocaleDateString("fr-FR", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })
+          : "",
+        excerpt: a.excerpt,
+        image: a.image || "https://images.unsplash.com/photo-1523580494112-071f1629bcce?q=80&w=800",
+      }))
       : [];
 
   const displayEvents =
     events && events.length > 0
       ? events.map((e) => {
-          const d = e.date ? new Date(e.date) : null;
-          return {
-            id: e._id,
-            day: d ? String(d.getDate()).padStart(2, "0") : "--",
-            month: d
-              ? d.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })
-              : "",
-            title: e.title,
-            time: e.time || e.location || "",
-            description: e.description,
-            image: e.image,
-          };
-        })
+        const d = e.date ? new Date(e.date) : null;
+        return {
+          id: e._id,
+          day: d ? String(d.getDate()).padStart(2, "0") : "--",
+          month: d
+            ? d.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })
+            : "",
+          title: e.title,
+          time: e.time || "",
+          location: e.location || "",
+          description: e.description,
+          image: e.image,
+        };
+      })
       : [];
 
   return (
@@ -98,7 +100,7 @@ export default async function ActualitesPage() {
               <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed">
                 Restez informé des dernières nouvelles, annonces et activités de l'Institut Supérieur des Arts et Métiers de Kinshasa.
               </p>
-              
+
               {/* Stats strip */}
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-6 mt-10">
                 <div className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20">
@@ -113,6 +115,9 @@ export default async function ActualitesPage() {
             </div>
           </div>
         </div>
+
+        {/* ── Featured Event (if eventId in URL) ── */}
+        <FeaturedEvent events={displayEvents} />
 
         {/* ── Content ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -201,7 +206,7 @@ export default async function ActualitesPage() {
               <div className="border border-isam-blue/20 rounded-3xl p-6 bg-isam-blue/4">
                 <h3 className="font-bold text-slate-800 font-display mb-2">Rejoindre l'ISAM</h3>
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  Inscrivez-vous à l'une de nos formations professionnelles pour l'année académique 2025–2026.
+                  Inscrivez-vous à l'une de nos formations professionnelles pour l'année académique 2026–2027.
                 </p>
                 <EnrollButton
                   className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 w-full justify-center hover:-translate-y-0.5"

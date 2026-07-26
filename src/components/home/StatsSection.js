@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { siteData } from "@/data/siteData";
-import { Users, UserCheck, Scissors, Globe } from "lucide-react";
+import { Users, UserCheck, Scissors, Book, Briefcase } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 function AnimatedNumber({ value }) {
@@ -51,14 +51,20 @@ const stats = [
   {
     icon: Scissors,
     value: siteData.stats.laboratories,
-    label: "Ateliers",
+    label: "Ateliers et Laboratoires",
     sub: "dédiés à la pratique",
   },
   {
-    icon: Globe,
+    icon: Book,
     value: siteData.stats.partners,
-    label: "Partenaires",
-    sub: "nationaux et internationaux",
+    label: "Bibliothèque",
+    sub: "ouvrages et ressources",
+  },
+  {
+    icon: Briefcase,
+    value: siteData.stats.administrative,
+    label: "Administratifs et personnels",
+    sub: "au service de l'institut",
   },
 ];
 
@@ -85,7 +91,7 @@ export default function StatsSection() {
             hidden: {},
             visible: { transition: { staggerChildren: 0.12 } },
           }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-4"
+          className="grid grid-cols-2 lg:grid-cols-5 gap-6 mt-4"
         >
           {stats.map((stat, index) => {
             const Icon = stat.icon;

@@ -1,9 +1,10 @@
 export const siteData = {
   stats: {
     students: "2 250",
-    teachers: "500",
+    teachers: "100",
     laboratories: "5",
     partners: "5",
+    administrative: "50",
   },
   news: [
     {
@@ -142,9 +143,9 @@ export const siteData = {
     }
   ],
   contact: {
-    address: "723, av de la libération (ex 24 novembre), Gombe, Kinshasa, RDC",
+    address: "772, av de la libération (ex 24 novembre), Gombe, Kinshasa, RDC",
     phone: "+243 827242261",
-    email: ["contact@isamkinshasa.ac.cd", "isamkinshasa@yahoo.fr"],
+    email: ["contact@isamkinshasa.com"],
     hours: "Lundi - Vendredi: 8h00 - 17h00 | Samedi: 9h00 - 13h00",
   }
 };

@@ -8,7 +8,7 @@ import { useState, useEffect, useCallback } from "react";
 const slides = [
   {
     image: "/hero/hero-1.jpg",
-    badge: "Inscriptions 2025-2026",
+    badge: "Inscriptions 2026-2027",
     title: "Façonnez votre Avenir à l'ISAM",
     subtitle: "Rejoignez nos programmes spécialisés en habillement, modélisme et esthétique. L'excellence académique au service de votre talent.",
     cta: "S'inscrire maintenant",

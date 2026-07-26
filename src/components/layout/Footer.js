@@ -38,7 +38,7 @@ export default function Footer() {
                 <img
                   src="/logo.png"
                   alt="ISAM"
-                  className="h-12 w-auto brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity"
+                  className="h-12 w-auto opacity-90 group-hover:opacity-100 transition-opacity bg-white p-1 rounded"
                 />
                 <div>
                   <p className="font-bold text-white font-display">ISAM Kinshasa</p>
@@ -121,12 +121,16 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center gap-3 text-gray-400">
                   <Phone className="w-4 h-4 text-isam-yellow shrink-0" />
-                  <span>{siteData.contact.phone}</span>
+                  <a href={`tel:${siteData.contact.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
+                    {siteData.contact.phone}
+                  </a>
                 </li>
                 {siteData.contact.email.map((e) => (
                   <li key={e} className="flex items-center gap-3 text-gray-400">
                     <Mail className="w-4 h-4 text-isam-yellow shrink-0" />
-                    <span className="text-xs break-all">{e}</span>
+                    <a href={`mailto:${e}`} className="text-xs break-all hover:text-white transition-colors">
+                      {e}
+                    </a>
                   </li>
                 ))}
               </ul>

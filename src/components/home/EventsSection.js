@@ -95,10 +95,10 @@ export default function EventsSection({ events = [] }) {
                 )}
 
                 <div className="mt-4 pl-4">
-                  <a href="#" className="inline-flex items-center gap-1 text-isam-blue text-xs font-semibold hover:gap-2 transition-all duration-200 group/link">
-                    En savoir plus
+                  <Link href={`/actualites?eventId=${event._id || event.id}`} className="inline-flex items-center gap-1 text-isam-blue text-xs font-semibold hover:gap-2 transition-all duration-200 group/link">
+                    Détails
                     <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             );

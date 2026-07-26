@@ -66,7 +66,7 @@ export default function ComitePage() {
                   <img 
                     src={member.image} 
                     alt={member.role}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
+                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
                   />
                   {/* Decorative gradient at bottom of image */}
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />

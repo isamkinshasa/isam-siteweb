@@ -16,13 +16,15 @@ import {
 import Link from "next/link";
 import EnrollButton from "@/components/ui/EnrollButton";
 
-export const revalidate = 60;
+export const dynamicParams = false;
 
 /** Génère les slugs statiques pour les routes dynamiques */
 export async function generateStaticParams() {
   try {
     const articles = await sanityFetch({ query: allArticlesQuery, tags: ["article"] });
-    return (articles || []).map((a) => ({ slug: a.slug?.current })).filter(Boolean);
+    return (articles || [])
+      .filter((a) => !!a.slug?.current)
+      .map((a) => ({ slug: a.slug.current }));
   } catch {
     return [];
   }
