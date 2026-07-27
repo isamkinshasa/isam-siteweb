@@ -77,7 +77,7 @@ export default async function ActualitesPage() {
       <main className="bg-white min-h-screen">
 
         {/* ── Page Hero ── */}
-        <div className="relative w-full h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
+        <div className="relative w-full h-[70vh] min-h-[500px] overflow-hidden bg-gray-900">
           <img
             src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1920&auto=format&fit=crop"
             alt="Actualités et Événements ISAM"

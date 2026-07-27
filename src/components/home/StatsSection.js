@@ -56,7 +56,7 @@ const stats = [
   },
   {
     icon: Book,
-    value: siteData.stats.partners,
+    value: siteData.stats.library,
     label: "Bibliothèque",
     sub: "ouvrages et ressources",
   },

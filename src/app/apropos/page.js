@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import SectionHeader from "@/components/ui/SectionHeader";
+import StatsSection from "@/components/home/StatsSection";
 import { siteData } from "@/data/siteData";
 
 export const metadata = {
@@ -17,7 +17,7 @@ export default function AboutPage() {
         {/* ── Page Hero ── */}
         <div className="relative w-full h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
           <img
-            src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=1920&auto=format&fit=crop"
+            src="/apropos-hero.jpg"
             alt="Campus ISAM Kinshasa"
             className="absolute inset-0 w-full h-full object-cover scale-105"
             style={{ transformOrigin: "center" }}
@@ -75,7 +75,7 @@ export default function AboutPage() {
               
               <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 group">
                 <img 
-                  src="https://images.unsplash.com/photo-1542304910-1c19b0284d72?q=80&w=800&auto=format&fit=crop" 
+                  src="/apropos-campus.jpg" 
                   alt="Campus ISAM" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -98,31 +98,7 @@ export default function AboutPage() {
         </div>
 
         {/* ── Stats ── */}
-        <div className="bg-isam-blue text-white py-20 relative overflow-hidden">
-          <div className="absolute inset-0 section-dots opacity-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 divide-x divide-white/10">
-              <div className="text-center px-4 group">
-                <div className="text-5xl md:text-6xl font-display font-bold mb-3 text-isam-yellow group-hover:scale-110 transition-transform duration-300">{siteData.stats.students}</div>
-                <p className="text-blue-100 text-sm md:text-base font-medium uppercase tracking-wider">Étudiants</p>
-              </div>
-              <div className="text-center px-4 group">
-                <div className="text-5xl md:text-6xl font-display font-bold mb-3 text-isam-yellow group-hover:scale-110 transition-transform duration-300">{siteData.stats.teachers}</div>
-                <p className="text-blue-100 text-sm md:text-base font-medium uppercase tracking-wider">Enseignants</p>
-              </div>
-              <div className="text-center px-4 group">
-                <div className="text-5xl md:text-6xl font-display font-bold mb-3 text-isam-yellow group-hover:scale-110 transition-transform duration-300">{siteData.stats.laboratories}</div>
-                <p className="text-blue-100 text-sm md:text-base font-medium uppercase tracking-wider">Ateliers</p>
-              </div>
-              <div className="text-center px-4 group">
-                <div className="text-5xl md:text-6xl font-display font-bold mb-3 text-isam-yellow group-hover:scale-110 transition-transform duration-300">{siteData.stats.partners}</div>
-                <p className="text-blue-100 text-sm md:text-base font-medium uppercase tracking-wider">Partenaires</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <StatsSection />
       </main>
       <Footer />
     </>

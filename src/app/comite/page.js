@@ -1,6 +1,5 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import SectionHeader from "@/components/ui/SectionHeader";
 import { siteData } from "@/data/siteData";
 
 export const metadata = {
@@ -12,49 +11,65 @@ export default function ComitePage() {
   return (
     <>
       <Header />
-      <main className="bg-isam-light min-h-screen">
+      <main className="bg-slate-50 min-h-screen">
         
-        {/* ── Page Hero ── */}
-        <div className="relative w-full h-[60vh] min-h-[400px] overflow-hidden bg-gray-900">
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1920&auto=format&fit=crop"
-            alt="Direction ISAM Kinshasa"
-            className="absolute inset-0 w-full h-full object-cover scale-105"
-            style={{ transformOrigin: "center" }}
-          />
-          {/* Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-gray-900/50 to-gray-900/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-isam-blue/60 to-transparent mix-blend-multiply" />
-
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center sm:text-left mt-20">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 border border-white/25 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-6 backdrop-blur-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-isam-yellow animate-pulse" />
-                Gouvernance
+        {/* ── Page Hero : Split Screen Intelligent Layout ── */}
+        <div className="relative w-full min-h-[500px] lg:h-[75vh] lg:min-h-[650px] flex flex-col lg:flex-row overflow-hidden bg-slate-950">
+          
+          {/* Colonne Gauche : Texte et Titres */}
+          <div className="relative z-10 w-full lg:w-[55%] flex items-center bg-gradient-to-br from-slate-950 via-isam-blue-dark to-slate-900 p-8 sm:p-12 lg:p-16 xl:p-24 border-r border-white/5">
+            <div className="absolute inset-0 section-dots opacity-15" />
+            <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-isam-blue/20 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="relative z-10 max-w-2xl mx-auto lg:mx-0">
+              <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest text-isam-yellow mb-6 backdrop-blur-md shadow-inner">
+                <span className="w-2 h-2 rounded-full bg-isam-yellow animate-pulse" />
+                Gouvernance & Haute Direction
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight font-display max-w-3xl mb-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight font-display mb-6">
                 Le Comité de Gestion
               </h1>
-              <p className="text-blue-100 text-lg md:text-xl max-w-2xl leading-relaxed">
-                Découvrez les personnalités qui dirigent et façonnent l'avenir de l'Institut Supérieur des Arts et Métiers de Kinshasa.
+              <p className="text-blue-100/90 text-lg md:text-xl leading-relaxed font-light mb-8">
+                Découvrez les autorités académiques qui dirigent, inspirent et façonnent l'excellence de l'Institut Supérieur des Arts et Métiers de Kinshasa.
               </p>
+            </div>
+          </div>
+
+          {/* Colonne Droite : Photo Intégrée Intelligemment */}
+          <div className="relative w-full h-[400px] sm:h-[500px] lg:h-full lg:w-[45%]">
+            <img
+              src="/comite-hero.jpg"
+              alt="Photo Officielle du Comité de Gestion"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 15%" }}
+            />
+            {/* Dégradé de transition subtil pour fusionner l'image avec la section gauche (visible uniquement sur desktop) */}
+            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-900 to-transparent hidden lg:block pointer-events-none" />
+            
+            {/* Légère ombre en bas pour mobile/tablette afin d'adoucir la coupe si besoin */}
+            <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-slate-50 to-transparent lg:hidden pointer-events-none" />
+            
+            {/* Petit badge descriptif flottant sur la photo */}
+            <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10 bg-gray-950/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 shadow-xl pointer-events-none hidden sm:block">
+              <p className="text-sm font-semibold text-white">Comité de Gestion de l'ISAM</p>
+              <p className="text-[10px] text-isam-yellow/90 uppercase tracking-widest mt-0.5">Photo officielle</p>
             </div>
           </div>
         </div>
 
-        {/* ── Content Section ── */}
+        {/* ── Individual Committee Members Section ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest border bg-isam-blue/8 border-isam-blue/20 text-isam-blue mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-isam-blue animate-pulse" />
-              Équipe Dirigeante
+              Membres du Comité
             </div>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-800 mb-6 leading-tight">
-              L'excellence à la tête de notre institution
+              Membres de l'Équipe Dirigeante
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              Composé de membres éminents du monde académique, notre comité de gestion s'assure du bon fonctionnement et du développement continu de l'ISAM.
+              Présentation détaillée des autorités académiques et administratives garantes de la mission d'enseignement et de recherche de l'ISAM Kinshasa.
             </p>
           </div>
           
@@ -68,7 +83,6 @@ export default function ComitePage() {
                     alt={member.role}
                     className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110"
                   />
-                  {/* Decorative gradient at bottom of image */}
                   <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent z-10" />
                 </div>
                 
@@ -86,6 +100,7 @@ export default function ComitePage() {
             ))}
           </div>
         </div>
+
       </main>
       <Footer />
     </>

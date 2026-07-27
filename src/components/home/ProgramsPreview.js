@@ -31,6 +31,15 @@ const programs = [
     color: "bg-isam-green",
     lightColor: "bg-isam-green/10",
     textColor: "text-isam-green"
+  },
+  {
+    id: "coupe-couture",
+    title: "Coupe et couture",
+    description: "Apprenez le patronage sur mesure, la découpe de précision et le montage de vêtements haute finition.",
+    icon: Scissors,
+    color: "bg-purple-600",
+    lightColor: "bg-purple-500/10",
+    textColor: "text-purple-600"
   }
 ];
 
@@ -68,7 +77,7 @@ export default function ProgramsPreview() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {programs.map((program) => {
             const Icon = program.icon;
@@ -91,7 +100,7 @@ export default function ProgramsPreview() {
                 </p>
                 
                 <Link 
-                  href={`/${program.id}`}
+                  href="/filiere"
                   className={`inline-flex items-center font-semibold ${program.textColor} hover:opacity-80 transition-opacity`}
                 >
                   En savoir plus 

@@ -161,6 +161,25 @@ export default function FilierePage() {
                 </div>
               </div>
 
+              {/* Coupe et couture */}
+              <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-sm border border-gray-100 flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div className="md:w-1/3 flex justify-center">
+                  <div className="w-40 h-40 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-600">
+                    <Scissors className="w-20 h-20" />
+                  </div>
+                </div>
+                <div className="md:w-2/3">
+                  <h2 className="text-3xl font-serif font-bold mb-4 text-foreground">Coupe et couture</h2>
+                  <p className="text-gray-600 mb-6 text-lg">Maîtrisez le patronage, la découpe de précision et le montage de vêtements haute finition. Une formation axée sur la maîtrise pratique des techniques de couture traditionnelle et moderne.</p>
+                  <ul className="space-y-3 mb-8 text-gray-700">
+                    <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-purple-500" /> Patronage et coupe sur mesure</li>
+                    <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-purple-500" /> Assemblage et finition haute couture</li>
+                    <li className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-purple-500" /> Contrôle qualité et retouches</li>
+                  </ul>
+                  <EnrollButton className="inline-flex items-center justify-center gap-2 bg-isam-blue text-white px-6 py-3 rounded-full font-medium hover:bg-isam-blue-dark transition-colors">S'inscrire à cette filière <ArrowRight className="w-4 h-4" /></EnrollButton>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

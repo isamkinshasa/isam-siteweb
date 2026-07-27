@@ -3,6 +3,7 @@ export const siteData = {
     students: "2 250",
     teachers: "100",
     laboratories: "5",
+    library: "1",
     partners: "5",
     administrative: "50",
   },

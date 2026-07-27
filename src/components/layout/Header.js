@@ -14,6 +14,7 @@ const navLinks = [
     subLinks: [
       { name: "À propos", href: "/apropos" },
       { name: "Comité de gestion", href: "/comite" },
+      { name: "Alumini", href: "#" },
     ],
   },
   {
@@ -23,6 +24,7 @@ const navLinks = [
       { name: "Technique d'habillement", href: "/filiere" },
       { name: "Modélisme & Stylisme", href: "/filiere" },
       { name: "Coiffure et Esthétique", href: "/filiere" },
+      { name: "Coupe et couture", href: "/filiere" },
     ],
   },
   { name: "Admission", href: "/admissions" },

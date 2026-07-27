@@ -9,7 +9,7 @@ const slides = [
   {
     image: "/hero/hero-1.jpg",
     badge: "Inscriptions 2026-2027",
-    title: "Façonnez votre Avenir à l'ISAM",
+    title: "Façonnez votre Avenir à l'ISAM/ KIN",
     subtitle: "Rejoignez nos programmes spécialisés en habillement, modélisme et esthétique. L'excellence académique au service de votre talent.",
     cta: "S'inscrire maintenant",
     ctaHref: "/portail-etudiant",
@@ -200,11 +200,10 @@ export default function HeroSection() {
           <button
             key={idx}
             onClick={() => go(idx)}
-            className={`transition-all duration-400 rounded-full ${
-              idx === current
-                ? "w-8 h-2.5 bg-white"
-                : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
-            }`}
+            className={`transition-all duration-400 rounded-full ${idx === current
+              ? "w-8 h-2.5 bg-white"
+              : "w-2.5 h-2.5 bg-white/40 hover:bg-white/70"
+              }`}
             aria-label={`Slide ${idx + 1}`}
           />
         ))}
