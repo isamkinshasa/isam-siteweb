@@ -72,7 +72,7 @@ export default function Footer() {
                   { name: "Accueil", href: "/" },
                   { name: "À propos", href: "/apropos" },
                   { name: "Comité de gestion", href: "/comite" },
-                  { name: "Alumini", href: "#" },
+                  { name: "Alumni", href: "#" },
                   { name: "Admissions", href: "/admissions" },
                   { name: "Actualités", href: "/actualites" },
                   { name: "Contact", href: "/contact" },

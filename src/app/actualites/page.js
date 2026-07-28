@@ -3,12 +3,10 @@ import Footer from "@/components/layout/Footer";
 import { siteData } from "@/data/siteData";
 import NewsCard from "@/components/ui/NewsCard";
 import EventCard from "@/components/ui/EventCard";
-import FeaturedEvent from "@/components/ui/FeaturedEvent";
 import { sanityFetch } from "@/sanity/client";
 import { allArticlesQuery, allEventsQuery } from "@/sanity/queries";
-import { Calendar, Newspaper, ArrowRight, Rss } from "lucide-react";
+import { Calendar, Newspaper } from "lucide-react";
 import Link from "next/link";
-import EnrollButton from "@/components/ui/EnrollButton";
 
 export const metadata = {
   title: "Actualités | ISAM Kinshasa",
@@ -40,6 +38,7 @@ export default async function ActualitesPage() {
         slug: typeof a.slug === "object" ? a.slug?.current : a.slug,
         title: a.title,
         category: a.category,
+        dateObj: a.publishedAt || a._createdAt ? new Date(a.publishedAt || a._createdAt) : new Date(0),
         date: a.publishedAt || a._createdAt
           ? new Date(a.publishedAt || a._createdAt).toLocaleDateString("fr-FR", {
             day: "numeric",
@@ -49,6 +48,7 @@ export default async function ActualitesPage() {
           : "",
         excerpt: a.excerpt,
         image: a.image || "https://images.unsplash.com/photo-1523580494112-071f1629bcce?q=80&w=800",
+        type: "article",
       }))
       : [];
 
@@ -58,6 +58,7 @@ export default async function ActualitesPage() {
         const d = e.date ? new Date(e.date) : null;
         return {
           id: e._id,
+          dateObj: d || new Date(0),
           day: d ? String(d.getDate()).padStart(2, "0") : "--",
           month: d
             ? d.toLocaleDateString("fr-FR", { month: "long", year: "numeric" })
@@ -67,9 +68,12 @@ export default async function ActualitesPage() {
           location: e.location || "",
           description: e.description,
           image: e.image,
+          type: "event",
         };
       })
       : [];
+
+  const combinedFeed = [...displayArticles, ...displayEvents].sort((a, b) => b.dateObj - a.dateObj);
 
   return (
     <>
@@ -116,29 +120,26 @@ export default async function ActualitesPage() {
           </div>
         </div>
 
-        {/* ── Featured Event (if eventId in URL) ── */}
-        <FeaturedEvent events={displayEvents} />
-
         {/* ── Content ── */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-[1fr_340px] gap-14">
+          <div className="w-full">
 
-            {/* Articles */}
+            {/* Articles et Événements */}
             <div>
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
                 <h2 className="text-xl font-bold font-display text-slate-800 flex items-center gap-2">
                   <span className="w-1.5 h-6 bg-isam-blue rounded-full" />
-                  Toutes les Actualités
+                  Toutes les Publications
                 </h2>
-                <span className="text-sm text-gray-400">{displayArticles.length} article{displayArticles.length > 1 ? "s" : ""}</span>
+                <span className="text-sm text-gray-400">{combinedFeed.length} publication{combinedFeed.length > 1 ? "s" : ""}</span>
               </div>
 
-              {displayArticles.length === 0 ? (
+              {combinedFeed.length === 0 ? (
                 <div className="text-center py-20 bg-isam-light rounded-3xl border border-dashed border-gray-200">
                   <Newspaper className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                  <p className="text-gray-500 font-medium">Aucun article publié pour le moment.</p>
+                  <p className="text-gray-500 font-medium">Aucune publication pour le moment.</p>
                   <p className="text-sm text-gray-400 mt-2">
-                    Ajoutez des articles depuis le{" "}
+                    Ajoutez des articles ou événements depuis le{" "}
                     <Link href="/structure" className="text-isam-blue underline">
                       Studio Sanity
                     </Link>
@@ -146,76 +147,18 @@ export default async function ActualitesPage() {
                   </p>
                 </div>
               ) : (
-                <div className="grid sm:grid-cols-2 gap-6">
-                  {displayArticles.map((article, index) => (
-                    <NewsCard key={article.id || index} article={article} index={index} />
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {combinedFeed.map((item, index) => (
+                    item.type === "article" ? (
+                      <NewsCard key={item.id || index} article={item} index={index} />
+                    ) : (
+                      <EventCard key={item.id || index} event={item} index={index} />
+                    )
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Sidebar */}
-            <aside className="space-y-6 lg:sticky lg:top-28 self-start">
-
-              {/* Events section */}
-              <div className="bg-isam-light rounded-3xl p-6 border border-gray-100">
-                <h2 className="text-lg font-bold font-display text-slate-800 flex items-center gap-2 mb-6">
-                  <span className="w-1.5 h-6 bg-isam-yellow rounded-full" />
-                  Agenda
-                </h2>
-                {displayEvents.length === 0 ? (
-                  <div className="text-center py-8">
-                    <Calendar className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-                    <p className="text-gray-400 text-sm">Aucun événement à venir.</p>
-                  </div>
-                ) : (
-                  <div className="space-y-4">
-                    {displayEvents.map((event, index) => (
-                      <EventCard key={event.id || index} event={event} index={index} />
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {/* Newsletter */}
-              <div className="bg-isam-blue rounded-3xl p-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl pointer-events-none" />
-                <div className="relative">
-                  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center mb-4">
-                    <Rss className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white font-display mb-2">Newsletter</h3>
-                  <p className="text-blue-200 text-sm mb-5 leading-relaxed">
-                    Ne manquez aucune actualité importante de l'ISAM Kinshasa.
-                  </p>
-                  <div className="space-y-3">
-                    <input
-                      type="email"
-                      placeholder="Votre adresse email"
-                      className="w-full px-4 py-3 rounded-xl border-0 text-sm text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-isam-yellow shadow-sm"
-                    />
-                    <button className="w-full bg-isam-yellow hover:bg-isam-yellow-dark text-gray-900 px-4 py-3 rounded-xl font-bold text-sm transition-all duration-200 flex items-center justify-center gap-2 hover:-translate-y-0.5">
-                      S'abonner
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA inscription */}
-              <div className="border border-isam-blue/20 rounded-3xl p-6 bg-isam-blue/4">
-                <h3 className="font-bold text-slate-800 font-display mb-2">Rejoindre l'ISAM</h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  Inscrivez-vous à l'une de nos formations professionnelles pour l'année académique 2026–2027.
-                </p>
-                <EnrollButton
-                  className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 w-full justify-center hover:-translate-y-0.5"
-                >
-                  S'inscrire en ligne
-                  <ArrowRight className="w-4 h-4" />
-                </EnrollButton>
-              </div>
-            </aside>
           </div>
         </div>
       </main>

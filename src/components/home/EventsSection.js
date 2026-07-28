@@ -95,7 +95,7 @@ export default function EventsSection({ events = [] }) {
                 )}
 
                 <div className="mt-4 pl-4">
-                  <Link href={`/actualites?eventId=${event._id || event.id}`} className="inline-flex items-center gap-1 text-isam-blue text-xs font-semibold hover:gap-2 transition-all duration-200 group/link">
+                  <Link href={`/actualites/evenement/${event._id || event.id}`} className="inline-flex items-center gap-1 text-isam-blue text-xs font-semibold hover:gap-2 transition-all duration-200 group/link">
                     Détails
                     <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                   </Link>

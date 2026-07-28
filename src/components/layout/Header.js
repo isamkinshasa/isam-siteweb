@@ -14,7 +14,7 @@ const navLinks = [
     subLinks: [
       { name: "À propos", href: "/apropos" },
       { name: "Comité de gestion", href: "/comite" },
-      { name: "Alumini", href: "#" },
+      { name: "Alumni", href: "#" },
     ],
   },
   {

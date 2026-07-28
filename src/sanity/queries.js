@@ -67,6 +67,18 @@ export const allEventsQuery = `*[_type == "event"] | order(date asc) {
   "image": image.asset->url,
 }`;
 
+/** Un événement par ID */
+export const eventByIdQuery = `*[_type == "event" && _id == $id][0] {
+  _id,
+  title,
+  date,
+  location,
+  time,
+  description,
+  category,
+  "image": image.asset->url,
+}`;
+
 /** Les 3 prochains événements */
 export const upcomingEventsQuery = `*[_type == "event" && date >= $today] | order(date asc)[0...3] {
   _id,
