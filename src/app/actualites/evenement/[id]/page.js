@@ -9,7 +9,27 @@ import ZoomableImage from "@/components/ui/ZoomableImage";
 import EnrollButton from "@/components/ui/EnrollButton";
 import ShareBlock from "@/components/ui/ShareBlock";
 
-export const dynamicParams = true;
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  try {
+    const events = await sanityFetch({
+      query: allEventsQuery,
+      tags: ["event"],
+    });
+    
+    if (!events || events.length === 0) {
+      return [{ id: "no-events" }];
+    }
+    
+    return events.map((event) => ({
+      id: event._id,
+    }));
+  } catch (error) {
+    console.error("Erreur lors de la génération des params statiques :", error);
+    return [];
+  }
+}
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -20,14 +40,28 @@ export async function generateMetadata({ params }) {
       tags: ["event"],
     });
     if (!event) return { title: "Événement non trouvé | ISAM Kinshasa" };
+    
+    const desc = event.description || "Détails de l'événement ISAM Kinshasa";
     return {
-      title: `${event.title} | ISAM Kinshasa`,
-      description: event.description || "Détails de l'événement ISAM Kinshasa",
+      title: event.title,
+      description: desc,
+      alternates: {
+        canonical: `/actualites/evenement/${event._id}`,
+      },
       openGraph: {
         title: event.title,
-        description: event.description,
+        description: desc,
         images: event.image ? [{ url: event.image }] : [],
         type: "article",
+        publishedTime: event.date || event._createdAt,
+        authors: ["ISAM Kinshasa"],
+        url: `/actualites/evenement/${event._id}`,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: event.title,
+        description: desc,
+        images: event.image ? [event.image] : [],
       },
     };
   } catch {

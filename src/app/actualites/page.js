@@ -9,9 +9,17 @@ import { Calendar, Newspaper } from "lucide-react";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Actualités | ISAM Kinshasa",
+  title: "Actualités",
   description:
     "Toutes les actualités et événements de l'Institut Supérieur des Arts et Métiers de Kinshasa.",
+  alternates: {
+    canonical: "/actualites",
+  },
+  openGraph: {
+    title: "Actualités | ISAM Kinshasa",
+    description: "Toutes les actualités et événements de l'Institut Supérieur des Arts et Métiers de Kinshasa.",
+    url: "/actualites",
+  },
 };
 
 

@@ -6,8 +6,16 @@ import EnrollButton from "@/components/ui/EnrollButton";
 import { CheckCircle } from "lucide-react";
 
 export const metadata = {
-  title: "Admissions | ISAM Kinshasa",
+  title: "Admissions",
   description: "Rejoignez l'ISAM Kinshasa. Découvrez les procédures d'admission et inscrivez-vous en ligne.",
+  alternates: {
+    canonical: "/admissions",
+  },
+  openGraph: {
+    title: "Admissions | ISAM Kinshasa",
+    description: "Rejoignez l'ISAM Kinshasa. Découvrez les procédures d'admission et inscrivez-vous en ligne.",
+    url: "/admissions",
+  },
 };
 
 export default function AdmissionsPage() {

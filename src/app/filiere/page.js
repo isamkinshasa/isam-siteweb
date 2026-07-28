@@ -6,8 +6,16 @@ import EnrollButton from "@/components/ui/EnrollButton";
 import { ArrowRight, Scissors, Palette, Sparkles, BookOpen, Microscope, Briefcase, GraduationCap } from "lucide-react";
 
 export const metadata = {
-  title: "Nos Filières | ISAM Kinshasa",
+  title: "Nos Filières",
   description: "Découvrez les formations offertes à l'ISAM Kinshasa : Technique d'habillement, Modélisme, Coiffure et Esthétique.",
+  alternates: {
+    canonical: "/filiere",
+  },
+  openGraph: {
+    title: "Nos Filières | ISAM Kinshasa",
+    description: "Découvrez les formations offertes à l'ISAM Kinshasa : Technique d'habillement, Modélisme, Coiffure et Esthétique.",
+    url: "/filiere",
+  },
 };
 
 const formationsOrga = [

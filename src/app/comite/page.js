@@ -3,8 +3,16 @@ import Footer from "@/components/layout/Footer";
 import { siteData } from "@/data/siteData";
 
 export const metadata = {
-  title: "Comité de Gestion | ISAM Kinshasa",
+  title: "Comité de Gestion",
   description: "Découvrez les membres du comité de gestion de l'ISAM Kinshasa.",
+  alternates: {
+    canonical: "/comite",
+  },
+  openGraph: {
+    title: "Comité de Gestion | ISAM Kinshasa",
+    description: "Découvrez les membres du comité de gestion de l'ISAM Kinshasa.",
+    url: "/comite",
+  },
 };
 
 export default function ComitePage() {

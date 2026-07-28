@@ -4,8 +4,16 @@ import StatsSection from "@/components/home/StatsSection";
 import { siteData } from "@/data/siteData";
 
 export const metadata = {
-  title: "À Propos | ISAM Kinshasa",
+  title: "À Propos",
   description: "Découvrez l'histoire, la mission et la vision de l'Institut Supérieur des Arts et Métiers de Kinshasa.",
+  alternates: {
+    canonical: "/apropos",
+  },
+  openGraph: {
+    title: "À Propos | ISAM Kinshasa",
+    description: "Découvrez l'histoire, la mission et la vision de l'Institut Supérieur des Arts et Métiers de Kinshasa.",
+    url: "/apropos",
+  },
 };
 
 export default function AboutPage() {

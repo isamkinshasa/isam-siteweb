@@ -3,8 +3,16 @@ import Footer from "@/components/layout/Footer";
 import ContactSection from "@/components/home/ContactSection";
 
 export const metadata = {
-  title: "Contact | ISAM Kinshasa",
+  title: "Contact",
   description: "Contactez l'Institut Supérieur des Arts et Métiers de Kinshasa.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact | ISAM Kinshasa",
+    description: "Contactez l'Institut Supérieur des Arts et Métiers de Kinshasa.",
+    url: "/contact",
+  },
 };
 
 export default function ContactPage() {

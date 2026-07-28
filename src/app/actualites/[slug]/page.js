@@ -52,13 +52,25 @@ export async function generateMetadata({ params }) {
     });
     if (!article) return { title: "Article non trouvé | ISAM Kinshasa" };
     return {
-      title: `${article.title} | ISAM Kinshasa`,
+      title: article.title,
       description: article.excerpt,
+      alternates: {
+        canonical: `/actualites/${article.slug}`,
+      },
       openGraph: {
         title: article.title,
         description: article.excerpt,
         images: article.image ? [{ url: article.image }] : [],
         type: "article",
+        publishedTime: article.publishedAt || article._createdAt,
+        authors: ["ISAM Kinshasa"],
+        url: `/actualites/${article.slug}`,
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: article.title,
+        description: article.excerpt,
+        images: article.image ? [article.image] : [],
       },
     };
   } catch {
