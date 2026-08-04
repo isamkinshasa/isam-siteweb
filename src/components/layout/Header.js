@@ -130,13 +130,15 @@ export default function Header() {
 
           {/* CTA */}
           <div className="ml-auto flex items-center gap-3">
-            <Link
-              href="/portail-etudiant"
+            <a
+              href="https://isam.optsolution.net/payment-authorization-voucher"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 hover:shadow-isam-blue/40 hover:-translate-y-0.5"
             >
               <GraduationCap className="w-4 h-4" />
               Portail étudiant
-            </Link>
+            </a>
 
             {/* Mobile menu toggle */}
             <button
@@ -195,14 +197,16 @@ export default function Header() {
                 );
               })}
               <div className="pt-3 pb-2">
-                <Link
-                  href="/portail-etudiant"
+                <a
+                  href="https://isam.optsolution.net/payment-authorization-voucher"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 bg-isam-blue text-white px-4 py-3 rounded-xl text-sm font-semibold shadow-md shadow-isam-blue/25"
                 >
                   <GraduationCap className="w-4 h-4" />
                   Portail étudiant
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>
