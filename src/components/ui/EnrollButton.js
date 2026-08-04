@@ -2,19 +2,30 @@
 
 import { ArrowRight } from "lucide-react";
 
-export default function EnrollButton({ className, children, onClick }) {
-  const handleClick = (e) => {
-    e.preventDefault();
-    if (onClick) {
-      onClick(e);
-    } else {
-      alert("Bientôt disponible !");
-    }
-  };
+export default function EnrollButton({
+  className = "",
+  children,
+  onClick,
+  href = "https://isam.optsolution.net",
+  target = "_blank",
+  rel = "noopener noreferrer",
+}) {
+  if (onClick) {
+    return (
+      <button onClick={onClick} className={`${className} cursor-pointer`}>
+        {children}
+      </button>
+    );
+  }
 
   return (
-    <button onClick={handleClick} className={className + " cursor-pointer"}>
+    <a
+      href={href}
+      target={target}
+      rel={rel}
+      className={`${className} cursor-pointer`}
+    >
       {children}
-    </button>
+    </a>
   );
 }

@@ -126,6 +126,21 @@ export default function PortailEtudiantPage() {
                 </>
               )}
             </button>
+
+            {/* Inscription Link */}
+            <div className="text-center pt-2">
+              <p className="text-xs text-gray-500">
+                Vous n'êtes pas encore inscrit ?{" "}
+                <a
+                  href="https://isam.optsolution.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-blue-600 hover:text-blue-700 underline"
+                >
+                  S'inscrire en ligne
+                </a>
+              </p>
+            </div>
           </form>
         </motion.div>
       </div>
