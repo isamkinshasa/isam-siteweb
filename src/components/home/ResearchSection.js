@@ -34,9 +34,9 @@ export default function ResearchSection() {
           >
             <div className="rounded-3xl overflow-hidden shadow-2xl shadow-isam-blue/10">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=900&auto=format&fit=crop"
-                alt="Excellence en formation ISAM"
-                className="w-full h-[460px] object-cover hover:scale-105 transition-transform duration-700"
+                src="/excellence-atelier.jpg"
+                alt="Atelier et formation d'excellence ISAM Kinshasa"
+                className="w-full h-[460px] object-cover object-center hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-isam-blue/60 via-transparent to-transparent rounded-3xl" />
             </div>
