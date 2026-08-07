@@ -12,7 +12,7 @@ const slides = [
     title: "Façonnez votre Avenir à l'ISAM/ KIN",
     subtitle: "Rejoignez nos programmes spécialisés en habillement, modélisme et esthétique. L'excellence académique au service de votre talent.",
     cta: "S'inscrire maintenant",
-    ctaHref: "https://isam.optsolution.net",
+    ctaHref: "https://isam.optsolution.net/demande-d-inscription-en-ligne-2026-2027",
     secondary: "Découvrir nos filières",
     secondaryHref: "/filiere",
   },
@@ -169,8 +169,6 @@ export default function HeroSection() {
               >
                 <a
                   href={slide.ctaHref}
-                  target={slide.ctaHref.startsWith("http") ? "_blank" : undefined}
-                  rel={slide.ctaHref.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5 cursor-pointer"
                 >
                   {slide.cta}

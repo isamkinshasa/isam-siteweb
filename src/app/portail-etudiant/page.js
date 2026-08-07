@@ -132,9 +132,7 @@ export default function PortailEtudiantPage() {
               <p className="text-xs text-gray-500">
                 Vous n'êtes pas encore inscrit ?{" "}
                 <a
-                  href="https://isam.optsolution.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="https://isam.optsolution.net/demande-d-inscription-en-ligne-2026-2027"
                   className="font-semibold text-blue-600 hover:text-blue-700 underline"
                 >
                   S'inscrire en ligne

@@ -6,9 +6,9 @@ export default function EnrollButton({
   className = "",
   children,
   onClick,
-  href = "https://isam.optsolution.net",
-  target = "_blank",
-  rel = "noopener noreferrer",
+  href = "https://isam.optsolution.net/demande-d-inscription-en-ligne-2026-2027",
+  target,
+  rel,
 }) {
   if (onClick) {
     return (

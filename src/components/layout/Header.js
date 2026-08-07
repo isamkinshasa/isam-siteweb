@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, GraduationCap } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -131,13 +131,14 @@ export default function Header() {
           {/* CTA */}
           <div className="ml-auto flex items-center gap-3">
             <a
-              href="https://isam.optsolution.net/payment-authorization-voucher"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 hover:shadow-isam-blue/40 hover:-translate-y-0.5"
+              href="https://isam.optsolution.net/demande-d-inscription-en-ligne-2026-2027"
+              className="hidden md:flex items-center gap-2.5 bg-gradient-to-r from-isam-blue to-blue-700 hover:from-isam-blue-dark hover:to-isam-blue text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 shadow-md shadow-isam-blue/25 hover:shadow-isam-blue/40 hover:-translate-y-0.5 cursor-pointer animate-glow-pulse relative"
             >
-              <GraduationCap className="w-4 h-4" />
-              Portail étudiant
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-isam-yellow opacity-85"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-isam-yellow"></span>
+              </span>
+              S'inscrire
             </a>
 
             {/* Mobile menu toggle */}
@@ -198,14 +199,15 @@ export default function Header() {
               })}
               <div className="pt-3 pb-2">
                 <a
-                  href="https://isam.optsolution.net/payment-authorization-voucher"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="https://isam.optsolution.net/demande-d-inscription-en-ligne-2026-2027"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 bg-isam-blue text-white px-4 py-3 rounded-xl text-sm font-semibold shadow-md shadow-isam-blue/25"
+                  className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-isam-blue to-blue-700 text-white px-4 py-3 rounded-xl text-sm font-semibold shadow-md shadow-isam-blue/25 animate-glow-pulse cursor-pointer relative"
                 >
-                  <GraduationCap className="w-4 h-4" />
-                  Portail étudiant
+                  <span className="relative flex h-2.5 w-2.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-isam-yellow opacity-85"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-isam-yellow"></span>
+                  </span>
+                  S'inscrire
                 </a>
               </div>
             </div>
