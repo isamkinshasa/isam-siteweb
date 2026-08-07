@@ -163,9 +163,9 @@ export default function InteractiveGuide() {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[115] w-full max-w-md px-4 pointer-events-auto"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[115] w-full max-w-lg px-4 pointer-events-auto"
               >
-                <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 md:p-7 relative overflow-hidden text-center">
+                <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 sm:p-8 relative overflow-hidden text-center">
                   
                   {/* Decorative background glow */}
                   <div className="absolute -top-16 -right-16 w-36 h-36 bg-isam-blue/10 rounded-full blur-2xl pointer-events-none" />
@@ -177,27 +177,27 @@ export default function InteractiveGuide() {
                     <span>Inscriptions en Ligne 2026-2027</span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 font-display mb-2">
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 font-display mb-2">
                     Prêt à rejoindre l'ISAM Kinshasa ?
                   </h3>
                   
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed">
+                  <p className="text-slate-600 text-sm sm:text-base mb-7 leading-relaxed max-w-md mx-auto">
                     Le formulaire d'admission en ligne est accessible à tout moment via le bouton <strong className="text-isam-blue font-semibold">« S'inscrire »</strong> dans la barre de navigation.
                   </p>
 
-                  <div className="flex flex-col sm:flex-row gap-3">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                     <a
                       href="https://isam.optsolution.net/demande-d-inscription-en-ligne-2026-2027"
                       onClick={handleClose}
-                      className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-isam-blue to-blue-700 hover:from-isam-blue-dark hover:to-isam-blue text-white px-5 py-3 rounded-xl font-bold text-sm shadow-lg shadow-isam-blue/30 transition-all hover:scale-[1.02]"
+                      className="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-isam-blue to-blue-700 hover:from-isam-blue-dark hover:to-isam-blue text-white px-6 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-isam-blue/30 transition-all hover:scale-[1.02] whitespace-nowrap cursor-pointer"
                     >
-                      <span>Remplir ma demande</span>
-                      <ArrowRight className="w-4 h-4" />
+                      <span className="whitespace-nowrap">Remplir ma demande</span>
+                      <ArrowRight className="w-4 h-4 shrink-0" />
                     </a>
 
                     <button
                       onClick={handleClose}
-                      className="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-slate-700 font-semibold text-sm rounded-xl transition-colors"
+                      className="w-full sm:w-auto px-5 py-3.5 bg-gray-100 hover:bg-gray-200 text-slate-700 font-semibold text-sm rounded-xl transition-colors whitespace-nowrap cursor-pointer shrink-0"
                     >
                       Continuer la visite
                     </button>

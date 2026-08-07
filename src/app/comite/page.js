@@ -110,7 +110,7 @@ export default function ComitePage() {
           {/* ORGANIGRAMME CONTAINER */}
           <div className="relative">
 
-            {/* ── NIVEAU 1 : DIRECTEUR GÉNÉRAL (SEUL EN HAUT) ── */}
+            {/* ── NIVEAU 1 : DIRECTRICE GÉNÉRALE (SEULE EN HAUT) ── */}
             <div className="flex flex-col items-center">
               <div className="w-full max-w-md bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-isam-yellow/70 group relative hover:-translate-y-1">
                 
