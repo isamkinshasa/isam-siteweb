@@ -93,7 +93,7 @@ export const siteData = {
   ],
   committee: [
     {
-      role: "Directeur Général",
+      role: "Directrice Générale",
       name: "Prof. Sr. Florence Mbiya Muadi",
       description: "Architecte de la modernisation de l'ISAM-Kinshasa",
       image: "/committee/dg.jpg",

@@ -1,5 +1,6 @@
 import { Inter, Playfair_Display, Poppins } from "next/font/google";
 import "./globals.css";
+import InteractiveGuide from "@/components/ui/InteractiveGuide";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -68,6 +69,7 @@ export default function RootLayout({ children }) {
     <html lang="fr" className={`${inter.variable} ${playfair.variable} ${poppins.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans">
         {children}
+        <InteractiveGuide />
       </body>
     </html>
   );

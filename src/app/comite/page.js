@@ -25,7 +25,7 @@ export const metadata = {
 };
 
 export default function ComitePage() {
-  const dg = siteData.committee.find((m) => m.image.includes("dg") || m.role.toLowerCase().includes("directeur")) || siteData.committee[0];
+  const dg = siteData.committee.find((m) => m.image.includes("dg") || m.role.toLowerCase().includes("directrice") || m.role.toLowerCase().includes("directeur")) || siteData.committee[0];
   const members = siteData.committee.filter((m) => m !== dg);
 
   const getMemberIcon = (role) => {

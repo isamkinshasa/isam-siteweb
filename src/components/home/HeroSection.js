@@ -167,13 +167,23 @@ export default function HeroSection() {
                 animate="visible"
                 className="flex flex-wrap gap-4"
               >
-                <a
-                  href={slide.ctaHref}
-                  className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5 cursor-pointer"
-                >
-                  {slide.cta}
-                  <ArrowRight className="w-4 h-4" />
-                </a>
+                {slide.ctaHref.startsWith("http") ? (
+                  <a
+                    href={slide.ctaHref}
+                    className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    {slide.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                ) : (
+                  <Link
+                    href={slide.ctaHref}
+                    className="inline-flex items-center gap-2 bg-isam-blue hover:bg-isam-blue-dark text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 shadow-lg shadow-isam-blue/40 hover:shadow-isam-blue/60 hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    {slide.cta}
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
                 <Link
                   href={slide.secondaryHref}
                   className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-7 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 backdrop-blur-sm"
