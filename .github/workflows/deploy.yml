@@ -5,9 +5,8 @@ on:
   push:
     branches:
       - main
+      - exauce
   workflow_dispatch:
-  repository_dispatch:
-    types: [sanity-webhook, sanity_webhook, sanity, webhook, create, update, delete]
 
 jobs:
   build-and-deploy:
